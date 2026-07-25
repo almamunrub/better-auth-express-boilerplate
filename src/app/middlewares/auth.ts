@@ -14,10 +14,11 @@ export const checkAuth =
     try {
       //Session Token Verification
       const sessionToken =
-        req.cookies['__Secure-session_token'] ||
-        req.cookies['session_token'] ||
-        req.cookies['better-auth.session_token'] ||
-        req.cookies['__Secure-better-auth.session_token'];
+        CookieUtils.getCookie(req, 'better-auth.session_token') ||
+        CookieUtils.getCookie(req, '__Secure-better-auth.session_token') ||
+        CookieUtils.getCookie(req, 'session_token') ||
+        CookieUtils.getCookie(req, '__Secure-session_token');
+      // console.log(sessionToken, 'session token');
 
       if (!sessionToken) {
         throw new Error('Unauthorized access! No session token provided.');
@@ -125,6 +126,13 @@ export const checkAuth =
         throw new ApiError(
           StatusCodes.FORBIDDEN,
           'Forbidden access! You do not have permission to access this resource.'
+        );
+      }
+
+      if (!req.user) {
+        throw new ApiError(
+          StatusCodes.UNAUTHORIZED,
+          'Unauthorized access! Invalid or expired session.'
         );
       }
 

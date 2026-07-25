@@ -103,12 +103,12 @@ export const auth = betterAuth({
           //   return;
           // }
 
-          // if (user && user.role === Role.SUPER_ADMIN) {
-          //   console.log(
-          //     `User with email ${email} is a super admin. Skipping sending verification OTP.`
-          //   );
-          //   return;
-          // }
+          if (user && user.role === Role.SUPER_ADMIN) {
+            console.log(
+              `User with email ${email} is a super admin. Skipping sending verification OTP.`
+            );
+            return;
+          }
 
           if (user && !user.emailVerified) {
             sendEmail({
