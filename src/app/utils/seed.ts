@@ -5,16 +5,16 @@ import { Role } from '../../generated/enums';
 
 export const seedSuperAdmin = async () => {
   try {
-    // const isSuperAdminExist = await prisma.user.findFirst({
-    //   where: {
-    //     role: Role.SUPER_ADMIN,
-    //   },
-    // });
+    const isSuperAdminExist = await prisma.user.findFirst({
+      where: {
+        role: Role.SUPER_ADMIN,
+      },
+    });
 
-    // if (isSuperAdminExist) {
-    //   console.log('Super admin already exists. Skipping seeding super admin.');
-    //   return;
-    // }
+    if (isSuperAdminExist) {
+      console.log('Super admin already exists. Skipping seeding super admin.');
+      return;
+    }
 
     const superAdminUser = await auth.api.signUpEmail({
       body: {
