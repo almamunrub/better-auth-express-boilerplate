@@ -1,9 +1,10 @@
 {
   "info": {
-    "_postman_id": "1aab134b-5daa-4e39-b86a-77a58ece6e7b",
-    "name": "better-auth",
+    "_postman_id": "9ebf7272-805e-4a00-86e8-d9eef9385471",
+    "name": "starter-api-docs",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "14949870"
+    "_exporter_id": "57074221",
+    "_collection_link": "https://go.postman.co/collection/57074221-9ebf7272-805e-4a00-86e8-d9eef9385471?source=collection_link"
   },
   "item": [
     {
@@ -16,7 +17,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"email\": \"mamunrub@yopmail.com\",\r\n    \"name\": \"Mamun\",\r\n    \"password\": \"password1234\"\r\n}",
+              "raw": "// {\r\n//   \"name\": \"Alex Chen\",\r\n//   \"email\": \"mamunrub@yopmail.com\",\r\n//   \"password\": \"password1234\",\r\n//   \"country\": \"Canada\",\r\n//   \"region\": \"North America\",\r\n//   \"favGame\": \"Valorant\",\r\n//   \"favGamSpecialistIn\": \"Controller\",\r\n//   \"language\": \"English\",\r\n//   \"recruiting\": true,\r\n//   \"microphone\": true,\r\n//   \"shortBio\": \"Competitive Valorant player with 3+ years experience. Looking for a serious team.\"\r\n// }\r\n// {\r\n//   \"name\": \"kofave\",\r\n//   \"email\": \"kofave7858@yopmail.com\",\r\n//   \"password\": \"password1234\",\r\n//   \"country\": \"Canada\",\r\n//   \"region\": \"North America\",\r\n//   \"favGame\": \"Valorant\",\r\n//   \"favGamSpecialistIn\": \"Controller\",\r\n//   \"language\": \"English\",\r\n//   \"recruiting\": true,\r\n//   \"microphone\": true,\r\n//   \"shortBio\": \"Competitive Valorant player with 3+ years experience. Looking for a serious team.\"\r\n// }\r\n// {\r\n//   \"name\": \"Mauzoihau\",\r\n//   \"email\": \"ciquommauzoihau-4239@yopmail.com\",\r\n//   \"password\": \"password1234\",\r\n//   \"country\": \"Bangladesh\",\r\n//   \"region\": \"Asia\",\r\n//   \"favGame\": \"League of Legends\",\r\n//   \"favGamSpecialistIn\": \"Mid Lane\",\r\n//   \"language\": \"English, Bengali\",\r\n//   \"recruiting\": false,\r\n//   \"microphone\": true,\r\n//   \"shortBio\": \"Passionate LoL player with 5 years of experience. Specialized in mid lane champions.\"\r\n// }\r\n// {\r\n//   \"name\": \"Mauzoihau\",\r\n//   \"email\": \"fasouxannauri-6398@yopmail.com\",\r\n//   \"password\": \"password1234\",\r\n//   \"country\": \"Bangladesh\",\r\n//   \"region\": \"Asia\",\r\n//   \"favGame\": \"League of Legends\",\r\n//   \"favGamSpecialistIn\": \"Mid Lane\",\r\n//   \"language\": \"English, Bengali\",\r\n//   \"recruiting\": false,\r\n//   \"microphone\": true,\r\n//   \"shortBio\": \"Passionate LoL player with 5 years of experience. Specialized in mid lane champions.\"\r\n// }\r\n{\r\n  \"name\": \"Mauzoihau\",\r\n  \"email\": \"fasouxannauri-33353@yopmail.com\",\r\n  \"password\": \"password1234\",\r\n  \"country\": \"Bangladesh\",\r\n  \"region\": \"Asia\",\r\n  \"favGame\": \"League of Legends\",\r\n  \"favGamSpecialistIn\": \"Mid Lane\",\r\n  \"language\": \"English, Bengali\",\r\n  \"recruiting\": false,\r\n  \"microphone\": true,\r\n  \"shortBio\": \"Passionate LoL player with 5 years of experience. Specialized in mid lane champions.\"\r\n}\r\n",
               "options": {
                 "raw": {
                   "language": "json"
@@ -43,7 +44,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "// {\r\n//     \"email\": \"mamun333089@gmail.com\",\r\n//     \"password\": \"12345678\"\r\n// }\r\n{\r\n    \"email\": \"superadmin@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+              "raw": "{\r\n    \"email\": \"mamun333089@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}\r\n// {\r\n//     \"email\": \"superadmin@gmail.com\",\r\n//     \"password\": \"12345678\"\r\n// }",
               "options": {
                 "raw": {
                   "language": "json"
@@ -70,7 +71,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"email\": \"mamunrub@yopmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+              "raw": "{\r\n    // \"email\": \"mamunrub@yopmail.com\",\r\n    \"email\": \"kofave7858@yopmail.com\",\r\n    // \"email\": \"ciquommauzoihau-4239@yopmail.com\",\r\n    \"password\": \"123456789\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -214,7 +215,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"email\": \"mamunrub@yopmail.com\",\r\n    \"otp\" : \"409426\"\r\n}",
+              "raw": "{\r\n    // \"email\": \"mamun333089@gmail.com\",\r\n    // \"email\": \"mamunrub@yopmail.com\",\r\n    // \"email\": \"kofave7858@bevriz.com\",\r\n    \"email\": \"ciquommauzoihau-4239@yopmail.com\",\r\n    \"otp\" : \"876316\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -241,7 +242,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    // \"email\": \"mamun333089@gmail.com\",\r\n    \"email\": \"mamunrub@yopmail.com\",\r\n    // \"email\": \"ciquommauzoihau-4239@yopmail.com\",\r\n    // \"type\": \"email-verification\"\r\n    \"type\": \"forget-password\"\r\n}",
+              "raw": "{\r\n    // \"email\": \"mamun333089@gmail.com\",\r\n    // \"email\": \"mamunrub@yopmail.com\",\r\n    \"email\": \"kofave7858@yopmail.com\",\r\n    // \"email\": \"ciquommauzoihau-4239@yopmail.com\",\r\n    // \"type\": \"email-verification\"\r\n    \"type\": \"forget-password\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -286,7 +287,77 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "Forget Password",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"mamunrub@yopmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{API_URL}}/auth/forget-password",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "forget-password"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "74"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4a-IUfClbMc7dfEFwR9rR2LQRgwBbs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 19 Jul 2026 02:37:02 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Password reset OTP sent to email successfully\"\n}"
+            }
+          ]
         },
         {
           "name": "Reset Password",
@@ -606,18 +677,49 @@
       ]
     },
     {
-      "name": "root",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{BACKEND_URL}}",
-          "host": [
-            "{{BACKEND_URL}}"
-          ]
+      "name": "users",
+      "item": [
+        {
+          "name": "Update Profile",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "profilePhoto",
+                  "type": "file",
+                  "uuid": "f5ee8e8c-a888-4997-8dac-ec7306e8f23e",
+                  "src": "/C:/Users/al-mamun/Pictures/jack-finnigan-rriAI0nhcbc-unsplash.jpg",
+                  "disabled": true
+                },
+                {
+                  "key": "phone",
+                  "value": "01516562647",
+                  "type": "text",
+                  "uuid": "2741af07-2a93-4216-9722-73f521697df0",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{API_URL}}/users/profile",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "profile"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     }
   ]
 }
