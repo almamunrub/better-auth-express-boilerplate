@@ -8,3 +8,9 @@ export interface ICreateAdminPayload {
   };
   role: 'ADMIN' | 'SUPER_ADMIN';
 }
+
+export interface IUpdateProfilePayload {
+  name?: string;
+  email?: string;
+  phone?: string;
+}
