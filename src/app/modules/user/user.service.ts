@@ -68,12 +68,20 @@ const updateProfile = async (
 
   try {
     const result = await prisma.$transaction(async tx => {
-      // Update common user information
-      const userUpdateData: Prisma.UserUpdateInput = {
-        name: payload.name,
-        email: payload.email,
-        phone: payload.phone,
-      };
+      // Build User update payload
+      const userUpdateData: Prisma.UserUpdateInput = {};
+
+      if (payload.name !== undefined) {
+        userUpdateData.name = payload.name;
+      }
+
+      if (payload.email !== undefined) {
+        userUpdateData.email = payload.email;
+      }
+
+      if (payload.phone !== undefined) {
+        userUpdateData.phone = payload.phone;
+      }
 
       if (imagePath) {
         userUpdateData.image = imagePath;
@@ -88,40 +96,56 @@ const updateProfile = async (
 
       switch (user.role) {
         case Role.USER: {
-          const player = await tx.player.findUnique({
+          const client = await tx.player.findUnique({
             where: {
               userId: user.userId,
             },
           });
 
-          if (!player) {
-            throw new ApiError(StatusCodes.NOT_FOUND, 'Player not found');
+          if (!client) {
+            throw new ApiError(
+              StatusCodes.NOT_FOUND,
+              'Client profile not found'
+            );
+          }
+
+          const clientUpdateData: Prisma.PlayerUpdateInput = {};
+
+          if (payload.name !== undefined) {
+            clientUpdateData.name = payload.name;
+          }
+
+          if (payload.email !== undefined) {
+            clientUpdateData.email = payload.email;
+          }
+
+          if (payload.phone !== undefined) {
+            clientUpdateData.contactNumber = payload.phone;
+          }
+
+          if (imagePath) {
+            clientUpdateData.profilePhoto = imagePath;
           }
 
           await tx.player.update({
             where: {
               userId: user.userId,
             },
-            data: {
-              name: payload.name,
-              email: payload.email,
-              phone: payload.phone,
-              ...(imagePath && {
-                profilePhoto: imagePath,
-              }),
+            data: clientUpdateData,
+          });
+
+          const updatedProfile = await tx.player.findUnique({
+            where: {
+              userId: user.userId,
+            },
+            include: {
+              user: true,
             },
           });
 
           return {
-            profile: await tx.player.findUnique({
-              where: {
-                userId: user.userId,
-              },
-              include: {
-                user: true,
-              },
-            }),
-            oldImage: player.profilePhoto,
+            profile: updatedProfile,
+            oldImage: client.profilePhoto,
           };
         }
 
@@ -134,32 +158,48 @@ const updateProfile = async (
           });
 
           if (!admin) {
-            throw new ApiError(StatusCodes.NOT_FOUND, 'Admin not found');
+            throw new ApiError(
+              StatusCodes.NOT_FOUND,
+              'Admin profile not found'
+            );
+          }
+
+          const adminUpdateData: Prisma.AdminUpdateInput = {};
+
+          if (payload.name !== undefined) {
+            adminUpdateData.name = payload.name;
+          }
+
+          if (payload.email !== undefined) {
+            adminUpdateData.email = payload.email;
+          }
+
+          if (payload.phone !== undefined) {
+            adminUpdateData.contactNumber = payload.phone;
+          }
+
+          if (imagePath) {
+            adminUpdateData.profilePhoto = imagePath;
           }
 
           await tx.admin.update({
             where: {
               userId: user.userId,
             },
-            data: {
-              name: payload.name,
-              email: payload.email,
-              phone: payload.phone,
-              ...(imagePath && {
-                profilePhoto: imagePath,
-              }),
+            data: adminUpdateData,
+          });
+
+          const updatedProfile = await tx.admin.findUnique({
+            where: {
+              userId: user.userId,
+            },
+            include: {
+              user: true,
             },
           });
 
           return {
-            profile: await tx.admin.findUnique({
-              where: {
-                userId: user.userId,
-              },
-              include: {
-                user: true,
-              },
-            }),
+            profile: updatedProfile,
             oldImage: admin.profilePhoto,
           };
         }
@@ -169,12 +209,14 @@ const updateProfile = async (
       }
     });
 
+    // Delete previous image only after transaction succeeds
     if (imagePath && result.oldImage) {
       await deleteSingleFile(result.oldImage);
     }
 
     return result.profile;
   } catch (error) {
+    // Remove newly uploaded image if transaction fails
     if (imagePath) {
       await deleteSingleFile(imagePath);
     }
