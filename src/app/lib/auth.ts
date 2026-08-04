@@ -159,7 +159,7 @@ export const auth = betterAuth({
     signIn: `${envVars.BETTER_AUTH_URL}/api/v1/auth/google/success`,
   },
   trustedOrigins: isProd
-    ? ['https://domain.com.bd', 'https://api.domain.com.bd']
+    ? [envVars.FRONTEND_URL, envVars.BETTER_AUTH_URL]
     : ['http://localhost:3000', 'http://localhost:5000'],
 
   advanced: {
